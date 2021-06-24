@@ -18,6 +18,8 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
+    - wheel
   run:
     - python
 
@@ -25,13 +27,21 @@ test:
   imports:
     - ellipticcurve
     - ellipticcurve.utils
+  requires:
+    - pip
+  commands:
+    - pip check
+
+
 
 about:
-  home: "https://github.com/starkbank/ecdsa-python"
+  home: https://github.com/starkbank/ecdsa-python
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: "A lightweight and fast pure python ECDSA library"
+  summary: A lightweight and fast pure python ECDSA library
+  dev_url: https://github.com/starkbank/ecdsa-python
+  doc_url: https://github.com/starkbank/ecdsa-python/blob/master/README.md
 
 extra:
   recipe-maintainers:
