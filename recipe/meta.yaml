@@ -1,5 +1,5 @@
 {% set name = "starkbank-ecdsa" %}
-{% set version = "1.1.0" %}
+{% set version = "1.1.1" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: 423f81bb55c896a3c85ee98ac7da98826721eaee918f5c0c1dfff99e1972da0c
+  sha256: f7b434b4a1e0ba082fb1804b908b79523973fd17b1fde377078857f7cee299d1
 
 build:
   noarch: python
@@ -18,6 +18,8 @@ requirements:
   host:
     - pip
     - python
+    - setuptools
+    - wheel
   run:
     - python
 
@@ -25,13 +27,21 @@ test:
   imports:
     - ellipticcurve
     - ellipticcurve.utils
+  requires:
+    - pip
+  commands:
+    - pip check
+
+
 
 about:
-  home: "https://github.com/starkbank/ecdsa-python"
+  home: https://github.com/starkbank/ecdsa-python
   license: MIT
   license_family: MIT
   license_file: LICENSE.txt
-  summary: "A lightweight and fast pure python ECDSA library"
+  summary: A lightweight and fast pure python ECDSA library
+  dev_url: https://github.com/starkbank/ecdsa-python
+  doc_url: https://github.com/starkbank/ecdsa-python/blob/master/README.md
 
 extra:
   recipe-maintainers:
